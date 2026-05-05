@@ -263,7 +263,26 @@
         </div>
         <button class="btn btn--primary" data-open-income>Add IN</button>
       </div>
-      ${o.length===0?`<div class="empty">No IN entries yet. Add one when someone gives you money.</div>`:`<div class="tableWrap" aria-label="IN history table (scrollable)">
+      ${o.length===0?`<div class="empty">No IN entries yet. Add one when someone gives you money.</div>`:`<div class="inCards">
+              ${o.map(t=>`<article class="inCard">
+                    <div class="inCard__top">
+                      <div class="inCard__left">
+                        <div class="inCard__note">${F(t.note||`—`)}</div>
+                        <div class="inCard__meta muted">
+                          <span class="mono">${t.date}</span>
+                          <span class="dot">•</span>
+                          <span>IN</span>
+                        </div>
+                      </div>
+                      <div class="inCard__amt mono">${e(t.amountCents,n.currency)}</div>
+                    </div>
+                    <div class="inCard__actions">
+                      <button class="btn btn--xs btn--accent" data-in-edit="${t.id}">Edit</button>
+                      <button class="btn btn--xs btn--danger" data-in-del="${t.id}">Delete</button>
+                    </div>
+                  </article>`).join(``)}
+            </div>
+            <div class="inTableWrap tableWrap" aria-label="IN history table (scrollable)">
               <div class="table">
                 <div class="table__head">
                   <div>Date</div>
