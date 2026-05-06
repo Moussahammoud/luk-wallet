@@ -1,9 +1,10 @@
-const CACHE_NAME = 'loukman-wallet-v1'
+const CACHE_NAME = 'loukman-wallet-v2'
 const APP_BASE = '/luk-wallet/'
 const PRECACHE_URLS = [
   APP_BASE,
   `${APP_BASE}manifest.webmanifest`,
   `${APP_BASE}favicon.svg`,
+  `${APP_BASE}apple-touch-icon-v2.png`,
 ]
 
 self.addEventListener('install', (event) => {
